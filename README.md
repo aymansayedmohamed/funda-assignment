@@ -39,7 +39,7 @@ The application uses `appsettings.json` for configuration:
 ```json
 {
   "FundaApi": {
-    "ApiKey": "76666a29898f491480386d966b75f949",
+    "ApiKey": "API-KEY",
     "BaseUrl": "http://partnerapi.funda.nl/feeds/Aanbod.svc/json",
     "PageSize": 25,
     "MaxRequestsPerMinute": 100,
