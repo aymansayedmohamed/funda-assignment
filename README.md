@@ -1,12 +1,12 @@
-# Funda Makelaars Analysis Tool
+# Funda Real Estate Agents Report Tool
 
-A .NET 8.0 console application that analyzes real estate data from the Funda API to determine which real estate agents (makelaars) in Amsterdam have the most properties listed for sale.
+A .NET 8.0 console application that analyzes real estate data from the Funda API to determine which real estate agents in Amsterdam have the most properties listed for sale.
 
 ## Overview
 
 This application fetches property data from the Funda API and generates two reports:
-1. **Top 10 makelaars** with the most properties in Amsterdam
-2. **Top 10 makelaars** with the most properties with gardens in Amsterdam
+1. **Top 10 real estate agents** with the most properties in Amsterdam
+2. **Top 10 real estate agents** with the most properties with gardens in Amsterdam
 
 ## Features
 
@@ -22,15 +22,15 @@ This application fetches property data from the Funda API and generates two repo
 ### Core Services
 
 - **IFundaApiService**: Handles API communication with retry policies and rate limiting
-- **IMakelaarAnalysisService**: Processes data and generates top 10 rankings
+- **IRealEstateAgentReportService**: Processes data and generates top 10 rankings
 - **IResultDisplayService**: Formats and displays results to console
 
 ### Models
 
 - **FundaApiResponse**: Maps the Funda API JSON response
 - **FundaObject**: Represents individual property listings
-- **MakelaarRanking**: Contains ranking data for makelaars
-- **AnalysisResult**: Comprehensive analysis results
+- **RealEstateAgentRanking**: Contains ranking data for real estate agents
+- **ReportResult**: Comprehensive report results
 
 ## Configuration
 
@@ -66,12 +66,12 @@ dotnet build
 ### Run the Application
 
 ```bash
-dotnet run --project Funda.MakelaarsReport
+dotnet run --project Funda.RealEstateAgentsReport
 ```
 
 Or use the VS Code tasks:
-- **Build Funda Analyzer**: `Ctrl+Shift+P` → `Tasks: Run Task` → `Build Funda Analyzer`
-- **Run Funda Analyzer**: `Ctrl+Shift+P` → `Tasks: Run Task` → `Run Funda Analyzer`
+- **Build Funda Report**: `Ctrl+Shift+P` → `Tasks: Run Task` → `Build Funda Report`
+- **Run Funda Report**: `Ctrl+Shift+P` → `Tasks: Run Task` → `Run Funda Report`
 
 ### Running Tests
 
@@ -117,27 +117,27 @@ The application **intentionally executes reports sequentially** rather than in p
 ### Data Processing
 
 1. Fetches all pages of data for each search query
-2. Aggregates properties by makelaar
+2. Aggregates properties by real estate agent
 3. Sorts by property count (descending)
-4. Returns top 10 makelaars with rankings
+4. Returns top 10 real estate agents with rankings
 
 ## Sample Output
 
 ```
 ================================================================================
-FUNDA MAKELAARS ANALYSIS REPORT
+FUNDA REAL ESTATE AGENTS REPORT
 ================================================================================
 Report Generated: 2025-10-23 14:30:45 UTC
 
 ================================================================================
-TOP 10 MAKELAARS - ALL PROPERTIES IN AMSTERDAM
+TOP 10 REAL ESTATE AGENTS - ALL PROPERTIES IN AMSTERDAM
 ================================================================================
 Search Query: /amsterdam/
 Total Objects Found: 5,200
-Analysis Date: 2025-10-23 14:30:45 UTC
+Report Date: 2025-10-23 14:30:45 UTC
 Processing Time: 127.35 seconds
 
-Rank   Makelaar Name                                      Objects   
+Rank   Real Estate Agent Name                            Properties   
 ----------------------------------------------------------------------
 1      ERA Makelaardij Amsterdam                          156       
 2      Hoekstra en van Eck Makelaars                     142       
@@ -160,7 +160,7 @@ Rank   Makelaar Name                                      Objects
 ## Project Structure
 
 ```
-Funda.MakelaarsReport/
+Funda.RealEstateAgentsReport/
 ├── Configuration/
 │   └── FundaApiOptions.cs
 ├── Models/
@@ -175,9 +175,9 @@ Funda.MakelaarsReport/
 │   └── FundaReportApplication.cs
 ├── Program.cs
 ├── appsettings.json
-└── Funda.MakelaarsReport.csproj
+└── Funda.RealEstateAgentsReport.csproj
 
-Funda.MakelaarsReport.Tests/
+Funda.RealEstateAgentsReport.Tests/
 ├── UnitTests/
 │   ├── FundaApiServiceTests.cs
 │   ├── RealEstateAgentReportServiceTests.cs
@@ -186,7 +186,7 @@ Funda.MakelaarsReport.Tests/
 │   └── FundaReportApplicationIntegrationTests.cs
 ├── TestData/
 │   └── sample-api-response.json
-└── Funda.MakelaarsReport.Tests.csproj
+└── Funda.RealEstateAgentsReport.Tests.csproj
 ```
 
 ## Testing
@@ -213,8 +213,8 @@ The project includes comprehensive unit and integration tests:
 This application fulfills all the requirements from the original assignment:
 
 ✅ **Object-oriented language**: Built with C# (.NET 8.0)  
-✅ **Top 10 makelaars in Amsterdam**: Generates ranking for all properties  
-✅ **Top 10 makelaars with gardens**: Generates ranking for properties with "tuin"  
+✅ **Top 10 real estate agents in Amsterdam**: Generates ranking for all properties  
+✅ **Top 10 real estate agents with gardens**: Generates ranking for properties with "tuin"  
 ✅ **Rate limiting**: Handles >100 requests per minute limitation  
 ✅ **Error handling**: Comprehensive error handling and resilience  
 ✅ **Readable code**: Clean architecture with clear separation of concerns  
@@ -239,7 +239,7 @@ This project was completed as a coding assignment with assistance from GitHub Co
 
 ### Human Decisions and Oversight
 
-- **Business Logic**: All analysis logic and ranking algorithms
+- **Business Logic**: All report logic and ranking algorithms
 - **Design Decisions**: Architectural choices (sequential vs parallel execution, rate limiting strategy) 
 - **Code Review**: All AI-generated code was reviewed, tested, and modified 
 - **Problem Solving**: Debugging and troubleshooting were primarily human-driven with AI assistance
