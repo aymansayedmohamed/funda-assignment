@@ -1,0 +1,49 @@
+{
+  "Objects": [
+    {
+      "Id": "1",
+      "MakelaarNaam": "Test Makelaar A",
+      "Koopprijs": 500000,
+      "Postcode": "1000AA",
+      "Woonoppervlakte": 100,
+      "AantalKamers": 4
+    },
+    {
+      "Id": "2",
+      "MakelaarNaam": "Test Makelaar A",
+      "Koopprijs": 600000,
+      "Postcode": "1000BB",
+      "Woonoppervlakte": 120,
+      "AantalKamers": 5
+    },
+    {
+      "Id": "3",
+      "MakelaarNaam": "Test Makelaar B",
+      "Koopprijs": 450000,
+      "Postcode": "1000CC",
+      "Woonoppervlakte": 90,
+      "AantalKamers": 3
+    },
+    {
+      "Id": "4",
+      "MakelaarNaam": "Test Makelaar A",
+      "Koopprijs": null,
+      "Postcode": "1000DD",
+      "Woonoppervlakte": 110,
+      "AantalKamers": 4
+    },
+    {
+      "Id": "5",
+      "MakelaarNaam": "Test Makelaar C",
+      "Koopprijs": 700000,
+      "Postcode": "1000EE",
+      "Woonoppervlakte": 150,
+      "AantalKamers": 6
+    }
+  ],
+  "Paging": {
+    "AantalPaginas": 1,
+    "HuidigePagina": 1
+  },
+  "TotaalAantalObjecten": 5
+}
